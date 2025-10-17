@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Internet & Voice — Assessment</title>
+  <meta name="description" content="Simple assessment to compare business internet & voice options. Estimate savings, reliability impact, and request a consult." />
+  <meta name="robots" content="index,follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --bg:#0a0a0a; --ink:#ffffff; --muted:#b5b5b5; }
+    html,body{ background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+    .card{ border:1px solid #1f1f1f; }
+    .soft{ box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+    .focus-ring:focus{ outline:2px solid #fff; outline-offset:2px; }
+    .fade-in{ animation: fade .25s ease-out both; } @keyframes fade{ from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:translateY(0)} }
+    .pulse{ animation:pulse 1.8s ease-in-out infinite; } @keyframes pulse{ 0%,100%{opacity:.5} 50%{opacity:1} }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="max-w-2xl mx-auto px-4 py-8 text-center">
+    <div class="uppercase tracking-widest text-xs text-[var(--muted)]">Connectivity Assessment</div>
+    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">Switch to Better Business Internet & Voice</h1>
+    <p class="text-[var(--muted)] mt-3">We help businesses, schools, startups, clinics, and multi‑site teams upgrade speed, reliability, and cost—without downtime drama.</p>
+    <div class="mt-5">
+      <a href="#why" class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring">Why Switch</a>
+      <a href="#quiz" class="px-5 py-3 rounded-xl border border-[#2a2a2a] ml-2">Get My Assessment</a>
+    </div>
+  </header>
+
+  <!-- WHY CHOOSE US (moved to top) -->
+  <section id="why" class="max-w-2xl mx-auto px-4 pb-10 text-center">
+    <h2 class="text-xl font-bold">Why teams sign up or switch</h2>
+    <ul class="mt-4 text-sm text-[var(--muted)] space-y-2">
+      <li>• <span class="text-white font-semibold">Lower total cost</span> — we right‑size tiers and secure promo pricing.</li>
+      <li>• <span class="text-white font-semibold">Fewer outages</span> — SLA‑backed circuits with coordinated cutovers.</li>
+      <li>• <span class="text-white font-semibold">Speed that matches workload</span> — dedicated options where available.</li>
+      <li>• <span class="text-white font-semibold">Static IP / Voice / LTE failover</span> — POS, EMR, cameras, and VoIP stay online.</li>
+      <li>• <span class="text-white font-semibold">Hands‑on project management</span> — install timelines and number porting done right.</li>
+    </ul>
+    <div class="mt-6">
+      <a href="#quiz" class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring">Start Your Assessment</a>
+    </div>
+  </section>
+
+  <!-- QUIZ / SURVEY -->
+  <main class="max-w-2xl mx-auto px-4 pb-16">
+    <section class="card soft rounded-2xl p-5 md:p-6 bg-black/40">
+      <form id="quiz" class="grid gap-5" novalidate>
+        <!-- Step 1: Org basics -->
+        <div class="grid gap-3">
+          <h2 class="text-xl font-bold">Your Organization</h2>
+          <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="company" placeholder="Company / Organization" />
+          <div class="grid grid-cols-2 gap-3">
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="employees" type="number" min="1" placeholder="# Employees" />
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="locations" type="number" min="1" placeholder="# Locations" />
+          </div>
+        </div>
+
+        <!-- Step 2: Current setup -->
+        <div class="grid gap-3">
+          <h2 class="text-xl font-bold">Current Connectivity</h2>
+          <div class="grid md:grid-cols-2 gap-3">
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="provider" placeholder="Current provider (if any)" />
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="monthly" type="number" min="0" placeholder="Monthly bill (USD)" />
+          </div>
+          <div class="grid md:grid-cols-2 gap-3">
+            <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="contract">
+              <option value="">Contract status</option>
+              <option>Month‑to‑month</option>
+              <option>Ends < 3 months</option>
+              <option>Ends 3–12 months</option>
+              <option>> 12 months left</option>
+              <option>Not sure</option>
+            </select>
+            <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="static_ip">
+              <option value="">Static IP needed?</option>
+              <option>Yes</option><option>No</option><option>Not sure</option>
+            </select>
+          </div>
+          <fieldset class="grid gap-2">
+            <legend class="text-sm text-[var(--muted)]">Main pain points (pick any)</legend>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <label class="flex items-center gap-2"><input type="checkbox" name="pain" value="price"/> Pricing is high</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="pain" value="speed"/> Slow speeds</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="pain" value="downtime"/> Downtime/instability</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="pain" value="coverage"/> Poor Wi‑Fi/coverage</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="pain" value="support"/> Poor support/SLA</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="pain" value="voice"/> Need better voice/VoIP</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Step 3: Needs & timing -->
+        <div class="grid gap-3">
+          <h2 class="text-xl font-bold">Needs & Timing</h2>
+          <div class="grid md:grid-cols-2 gap-3">
+            <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="intent" required>
+              <option value="">I want to…</option>
+              <option>Start new service</option>
+              <option>Switch provider</option>
+              <option>Move/expand location</option>
+              <option>Compare options</option>
+            </select>
+            <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="timeline">
+              <option value="">Install window</option>
+              <option>ASAP</option><option>30 days</option><option>60–90 days</option><option>> 90 days</option>
+            </select>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3">
+            <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="industry">
+              <option value="">Industry</option>
+              <option>Education</option><option>Healthcare</option><option>Retail</option><option>Restaurants</option><option>Startups</option><option>Manufacturing</option><option>Professional Services</option><option>Other</option>
+            </select>
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="address" placeholder="Business address + Suite" />
+          </div>
+        </div>
+
+        <!-- Step 4: Contact + CTA -->
+        <div class="grid gap-3">
+          <h2 class="text-xl font-bold">Contact</h2>
+          <div class="grid md:grid-cols-2 gap-3">
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="name" placeholder="Your name" required />
+            <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="email" type="email" placeholder="Work email" required />
+          </div>
+          <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="phone" type="tel" placeholder="Phone (optional)" />
+          <label class="flex items-start gap-2 text-sm text-[var(--muted)]"><input type="checkbox" name="consent" required class="mt-1"> I consent to be contacted by phone/SMS and email. Reply STOP to opt‑out.</label>
+          <div class="mt-1 text-center">
+            <button class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring" id="submitBtn">Get My Assessment</button>
+          </div>
+        </div>
+        <p id="formMsg" class="text-sm text-[var(--muted)] text-center"></p>
+      </form>
+
+      <!-- RESULT -->
+      <div id="result" class="hidden fade-in mt-6 border border-[#2a2a2a] rounded-2xl p-5 text-center">
+        <h3 class="text-2xl font-extrabold">Your Snapshot</h3>
+        <p class="text-[var(--muted)] mt-1">Estimate based on your inputs.</p>
+        <div class="grid md:grid-cols-3 gap-4 mt-4 text-center">
+          <div class="rounded-xl border border-[#2a2a2a] p-4">
+            <div class="text-xs text-[var(--muted)]">Estimated Savings</div>
+            <div id="r_savings" class="text-3xl font-black text-green-400">—</div>
+          </div>
+          <div class="rounded-xl border border-[#2a2a2a] p-4">
+            <div class="text-xs text-[var(--muted)]">Reliability Impact</div>
+            <div id="r_reliability" class="text-3xl font-black">—</div>
+          </div>
+          <div class="rounded-xl border border-[#2a2a2a] p-4">
+            <div class="text-xs text-[var(--muted)]">Recommended Path</div>
+            <div id="r_path" class="text-sm font-semibold mt-2">—</div>
+          </div>
+        </div>
+        <div class="mt-4 text-sm text-[var(--muted)]" id="r_reason"></div>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <button id="openBooking" class="px-5 py-3 rounded-xl bg-white text-black font-semibold">Request a Consult</button>
+          <button id="resetQuiz" class="px-5 py-3 rounded-xl border border-[#2a2a2a]">Start Over</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOOKING MODAL (Calendly) -->
+  <div id="bookModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-black border border-[#2a2a2a] rounded-2xl overflow-hidden soft">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-[#2a2a2a]">
+        <h3 class="font-semibold">Request a Consult</h3>
+        <button id="closeBook" class="text-[var(--muted)]">✕</button>
+      </div>
+      <div class="p-4">
+        <div id="calendlyContainer" class="rounded-xl overflow-hidden border border-[#2a2a2a]" style="height:520px"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="max-w-2xl mx-auto px-4 py-10 text-center text-xs text-[var(--muted)]">
+    Consent logged. Reply STOP to opt‑out.
+  </footer>
+
+  <script>
+    // Firestore placeholders — wire up later
+    const FIRESTORE_ENABLED = false; // flip to true when you add Firestore code
+
+    // Calculations
+    function estSavings(monthly, pains){
+      const base = Math.max(0, Number(monthly)||0);
+      let pct = 0.08; // baseline 8%
+      if (pains.includes('price')) pct += 0.07;
+      if (pains.includes('speed')) pct += 0.04;
+      if (pains.includes('downtime')) pct += 0.06;
+      if (pains.includes('coverage')) pct += 0.02;
+      if (pains.includes('support')) pct += 0.03;
+      pct = Math.min(0.30, Math.max(0.08, pct));
+      return Math.round(base * pct);
+    }
+    function reliabilityLabel(pains){
+      const score = (pains.includes('downtime')?2:0) + (pains.includes('speed')?1:0) + (pains.includes('coverage')?1:0) + (pains.includes('support')?1:0);
+      if (score >= 3) return 'High Impact';
+      if (score === 2) return 'Moderate';
+      return 'Incremental';
+    }
+    function pathSuggestion(intent, staticIP, employees, locations){
+      const e = Number(employees||0), l = Number(locations||1);
+      const needsStatic = (staticIP||'').toLowerCase()==='yes';
+      if (needsStatic || e>25 || l>1) return 'Quote dedicated circuit + static IP; add LTE failover';
+      if (intent === 'Move/expand location') return 'Coordinate cutover; stage voice + LTE backup';
+      return 'Compare business tiers; include voice bundle and managed Wi‑Fi';
+    }
+    function bulletReason(pains){
+      const lines = [];
+      if (pains.includes('price')) lines.push('• Pricing → negotiate promos & right‑size bandwidth.');
+      if (pains.includes('speed')) lines.push('• Speed → evaluate dedicated options and QoS.');
+      if (pains.includes('downtime')) lines.push('• Downtime → SLA‑backed circuit + LTE failover.');
+      if (pains.includes('coverage')) lines.push('• Coverage → redesign Wi‑Fi with proper AP density.');
+      if (pains.includes('support')) lines.push('• Support → elevate support model and SLAs.');
+      if (pains.includes('voice')) lines.push('• Voice → modernize with VoIP, port numbers.');
+      return lines.join('
+');
+    }
+
+    // Form
+    const form = document.getElementById('quiz');
+    const formMsg = document.getElementById('formMsg');
+    const result = document.getElementById('result');
+    const rSavings = document.getElementById('r_savings');
+    const rReliability = document.getElementById('r_reliability');
+    const rPath = document.getElementById('r_path');
+    const rReason = document.getElementById('r_reason');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      submitBtn.disabled = true; submitBtn.textContent = 'Calculating…';
+      const data = Object.fromEntries(new FormData(form).entries());
+      const pains = Array.from(form.querySelectorAll('input[name="pain"]:checked')).map(i=>i.value);
+
+      if (!data.intent || !data.name || !data.email){
+        formMsg.textContent = 'Please complete required fields (intent, name, email).';
+        submitBtn.disabled = false; submitBtn.textContent = 'Get My Assessment';
+        return;
+      }
+
+      const savings = estSavings(data.monthly, pains);
+      const reliability = reliabilityLabel(pains);
+      const path = pathSuggestion(data.intent, data.static_ip, data.employees, data.locations);
+      const reason = bulletReason(pains);
+
+      rSavings.textContent = savings ? `$${savings.toLocaleString()}/mo` : '—';
+      rReliability.textContent = reliability;
+      rPath.textContent = path;
+      rReason.textContent = reason || '• Balanced profile. We’ll confirm serviceability and promos for your address.';
+      result.classList.remove('hidden');
+
+      // Placeholder: add Firestore write here when ready
+      if (FIRESTORE_ENABLED) {
+        // import { initializeApp } from 'firebase-app';
+        // import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase-firestore';
+        // await addDoc(collection(db,'leads_enterprise_bw'), { ...data, pains, savings_est: savings, reliability, path, reason, createdAt: serverTimestamp(), source: 'enterprise-minimal' });
+      }
+
+      submitBtn.disabled = false; submitBtn.textContent = 'Get My Assessment';
+    });
+
+    document.getElementById('resetQuiz').addEventListener('click', ()=>{ result.classList.add('hidden'); form.reset(); formMsg.textContent=''; window.scrollTo({top:0, behavior:'smooth'}); });
+
+    // Calendly modal
+    const bookModal = document.getElementById('bookModal');
+    const openBooking = document.getElementById('openBooking');
+    const closeBook = document.getElementById('closeBook');
+    const calendlyContainer = document.getElementById('calendlyContainer');
+    function loadCalendly(){
+      if (document.getElementById('cal-js')) return;
+      const s = document.createElement('script'); s.id='cal-js'; s.src='https://assets.calendly.com/assets/external/widget.js'; s.async=true; document.body.appendChild(s);
+    }
+    function openModal(){
+      bookModal.classList.remove('hidden'); bookModal.classList.add('flex');
+      if(!calendlyContainer.dataset.loaded){
+        calendlyContainer.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/arisolutionsinc/30min" style="min-width:320px;height:100%"></div>';
+        calendlyContainer.dataset.loaded = '1';
+        loadCalendly();
+      }
+    }
+    function closeModal(){ bookModal.classList.add('hidden'); bookModal.classList.remove('flex'); }
+    openBooking.addEventListener('click', openModal);
+    closeBook.addEventListener('click', closeModal);
+    bookModal.addEventListener('click', (e)=>{ if(e.target.id==='bookModal') closeModal(); });
+    window.addEventListener('message', (e)=>{ if(e?.data?.event==='calendly.event_scheduled') closeModal(); });
+  </script>
+
+  <!-- Security note: For production, add Firestore rules or proxy writes via a serverless function. -->
+</body>
+</html>
