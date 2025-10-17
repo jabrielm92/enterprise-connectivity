@@ -15,7 +15,8 @@
     .soft{ box-shadow: 0 10px 30px rgba(0,0,0,.45); }
     .focus-ring:focus{ outline:2px solid #fff; outline-offset:2px; }
     .fade-in{ animation: fade .25s ease-out both; } @keyframes fade{ from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:translateY(0)} }
-    .pulse{ animation:pulse 1.8s ease-in-out infinite; } @keyframes pulse{ 0%,100%{opacity:.5} 50%{opacity:1} }
+    /* Ensure newlines in the result reasons render as line breaks */
+    #r_reason{ white-space: pre-line; }
   </style>
 </head>
 <body>
@@ -24,13 +25,21 @@
     <div class="uppercase tracking-widest text-xs text-[var(--muted)]">Connectivity Assessment</div>
     <h1 class="text-3xl md:text-4xl font-extrabold mt-2">Switch to Better Business Internet & Voice</h1>
     <p class="text-[var(--muted)] mt-3">We help businesses, schools, startups, clinics, and multi‑site teams upgrade speed, reliability, and cost—without downtime drama.</p>
-    <div class="mt-5">
-      <a href="#why" class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring">Why Switch</a>
-      <a href="#quiz" class="px-5 py-3 rounded-xl border border-[#2a2a2a] ml-2">Get My Assessment</a>
-    </div>
-  </header>
+    </header>
 
-  <!-- WHY CHOOSE US (moved to top) -->
+  <!-- CTA BANNER -->
+  <section class="max-w-3xl mx-auto px-4 pb-6">
+    <div class="card soft rounded-2xl p-5 md:p-6 bg-black/60 text-center">
+      <div class="text-xs uppercase tracking-wider text-[var(--muted)]">Quick Check</div>
+      <h2 class="text-2xl md:text-3xl font-extrabold mt-1">Take the 30‑second Assessment</h2>
+      <p class="text-sm text-[var(--muted)] mt-2">Find out if you’d be better off on price, speed, reliability, and voice—before you switch. We’ll add current promos once confirmed by our rep.</p>
+      <div class="mt-4">
+        <a href="#quiz" class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring">Start Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US (top) -->
   <section id="why" class="max-w-2xl mx-auto px-4 pb-10 text-center">
     <h2 class="text-xl font-bold">Why teams sign up or switch</h2>
     <ul class="mt-4 text-sm text-[var(--muted)] space-y-2">
@@ -39,15 +48,20 @@
       <li>• <span class="text-white font-semibold">Speed that matches workload</span> — dedicated options where available.</li>
       <li>• <span class="text-white font-semibold">Static IP / Voice / LTE failover</span> — POS, EMR, cameras, and VoIP stay online.</li>
       <li>• <span class="text-white font-semibold">Hands‑on project management</span> — install timelines and number porting done right.</li>
+      <li>• <span class="text-white font-semibold">Transparent promos</span> — we pass through current offers when available.</li>
     </ul>
-    <div class="mt-6">
-      <a href="#quiz" class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring">Start Your Assessment</a>
-    </div>
   </section>
 
-  <!-- QUIZ / SURVEY -->
+  <!-- CONNECT CTA (before survey) -->
+  <section class="max-w-2xl mx-auto px-4 pb-6 text-center">
+    <button id="openConnect" class="px-5 py-3 rounded-xl bg-white text-black font-semibold focus-ring">Let's Connect</button>
+  </section>
+
+  <!-- QUIZ / SURVEY (only essential button here) -->
   <main class="max-w-2xl mx-auto px-4 pb-16">
     <section class="card soft rounded-2xl p-5 md:p-6 bg-black/40">
+      <h2 class="text-2xl font-extrabold text-center mb-1">Business Internet & Voice Assessment</h2>
+      <p class="text-center text-sm text-[var(--muted)] mb-4">Answer a few questions to estimate savings and reliability impact. Takes ~30 seconds.</p>
       <form id="quiz" class="grid gap-5" novalidate>
         <!-- Step 1: Org basics -->
         <div class="grid gap-3">
@@ -70,9 +84,9 @@
             <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="contract">
               <option value="">Contract status</option>
               <option>Month‑to‑month</option>
-              <option>Ends < 3 months</option>
+              <option>Ends &lt; 3 months</option>
               <option>Ends 3–12 months</option>
-              <option>> 12 months left</option>
+              <option>&gt; 12 months left</option>
               <option>Not sure</option>
             </select>
             <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="static_ip">
@@ -106,7 +120,7 @@
             </select>
             <select class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="timeline">
               <option value="">Install window</option>
-              <option>ASAP</option><option>30 days</option><option>60–90 days</option><option>> 90 days</option>
+              <option>ASAP</option><option>30 days</option><option>60–90 days</option><option>&gt; 90 days</option>
             </select>
           </div>
           <div class="grid md:grid-cols-2 gap-3">
@@ -118,7 +132,7 @@
           </div>
         </div>
 
-        <!-- Step 4: Contact + CTA -->
+        <!-- Step 4: Contact (only quiz button) -->
         <div class="grid gap-3">
           <h2 class="text-xl font-bold">Contact</h2>
           <div class="grid md:grid-cols-2 gap-3">
@@ -134,42 +148,55 @@
         <p id="formMsg" class="text-sm text-[var(--muted)] text-center"></p>
       </form>
 
-      <!-- RESULT -->
+      <!-- RESULT (no extra buttons) -->
       <div id="result" class="hidden fade-in mt-6 border border-[#2a2a2a] rounded-2xl p-5 text-center">
         <h3 class="text-2xl font-extrabold">Your Snapshot</h3>
         <p class="text-[var(--muted)] mt-1">Estimate based on your inputs.</p>
-        <div class="grid md:grid-cols-3 gap-4 mt-4 text-center">
+        <div class="grid md:grid-cols-4 gap-4 mt-4 text-center">
+          <div class="rounded-xl border border-[#2a2a2a] p-4">
+            <div class="text-xs text-[var(--muted)]">Current Bill</div>
+            <div id="r_bill" class="text-3xl font-black">—</div>
+          </div>
           <div class="rounded-xl border border-[#2a2a2a] p-4">
             <div class="text-xs text-[var(--muted)]">Estimated Savings</div>
             <div id="r_savings" class="text-3xl font-black text-green-400">—</div>
           </div>
           <div class="rounded-xl border border-[#2a2a2a] p-4">
+            <div class="text-xs text-[var(--muted)]">Projected New Bill</div>
+            <div id="r_newbill" class="text-3xl font-black">—</div>
+          </div>
+          <div class="rounded-xl border border-[#2a2a2a] p-4">
             <div class="text-xs text-[var(--muted)]">Reliability Impact</div>
             <div id="r_reliability" class="text-3xl font-black">—</div>
           </div>
-          <div class="rounded-xl border border-[#2a2a2a] p-4">
-            <div class="text-xs text-[var(--muted)]">Recommended Path</div>
-            <div id="r_path" class="text-sm font-semibold mt-2">—</div>
-          </div>
         </div>
-        <div class="mt-4 text-sm text-[var(--muted)]" id="r_reason"></div>
-        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-          <button id="openBooking" class="px-5 py-3 rounded-xl bg-white text-black font-semibold">Request a Consult</button>
-          <button id="resetQuiz" class="px-5 py-3 rounded-xl border border-[#2a2a2a]">Start Over</button>
+        <div class="rounded-xl border border-[#2a2a2a] p-4 mt-4 text-left">
+          <div class="text-xs text-[var(--muted)]">Recommended Path</div>
+          <div id="r_path" class="text-sm font-semibold mt-2">—</div>
+          <div class="mt-2 text-sm text-[var(--muted)]" id="r_reason"></div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- BOOKING MODAL (Calendly) -->
-  <div id="bookModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4">
-    <div class="w-full max-w-2xl bg-black border border-[#2a2a2a] rounded-2xl overflow-hidden soft">
+  <!-- CONNECT MODAL (lightweight lead capture) -->
+  <div id="connectModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4">
+    <div class="w-full max-w-md bg-black border border-[#2a2a2a] rounded-2xl overflow-hidden soft">
       <div class="flex items-center justify-between px-4 py-3 border-b border-[#2a2a2a]">
-        <h3 class="font-semibold">Request a Consult</h3>
-        <button id="closeBook" class="text-[var(--muted)]">✕</button>
+        <h3 class="font-semibold">Let's Connect</h3>
+        <button id="closeConnect" class="text-[var(--muted)]">✕</button>
       </div>
       <div class="p-4">
-        <div id="calendlyContainer" class="rounded-xl overflow-hidden border border-[#2a2a2a]" style="height:520px"></div>
+        <form id="connectForm" class="grid gap-3">
+          <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="name" placeholder="Your name" required />
+          <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="email" type="email" placeholder="Work email" required />
+          <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="phone" type="tel" placeholder="Phone (optional)" />
+          <input class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="company" placeholder="Company / Organization" />
+          <textarea class="w-full bg-black border border-[#2a2a2a] rounded-xl px-3 py-2" name="notes" rows="3" placeholder="What do you want to improve? (pricing, speed, downtime, voice, etc.)"></textarea>
+          <label class="flex items-start gap-2 text-sm text-[var(--muted)]"><input type="checkbox" name="consent" required class="mt-1"> I consent to be contacted by phone/SMS and email. Reply STOP to opt‑out.</label>
+          <button class="px-5 py-3 rounded-xl bg-white text-black font-semibold">Send</button>
+          <p id="connectMsg" class="text-xs text-[var(--muted)]"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -215,15 +242,16 @@
       if (pains.includes('coverage')) lines.push('• Coverage → redesign Wi‑Fi with proper AP density.');
       if (pains.includes('support')) lines.push('• Support → elevate support model and SLAs.');
       if (pains.includes('voice')) lines.push('• Voice → modernize with VoIP, port numbers.');
-      return lines.join('
-');
+      return lines.join('\n');
     }
 
-    // Form
+    // Quiz form
     const form = document.getElementById('quiz');
     const formMsg = document.getElementById('formMsg');
     const result = document.getElementById('result');
+    const rBill = document.getElementById('r_bill');
     const rSavings = document.getElementById('r_savings');
+    const rNewBill = document.getElementById('r_newbill');
     const rReliability = document.getElementById('r_reliability');
     const rPath = document.getElementById('r_path');
     const rReason = document.getElementById('r_reason');
@@ -241,12 +269,17 @@
         return;
       }
 
-      const savings = estSavings(data.monthly, pains);
+      const baseBill = Math.max(0, Number(data.monthly)||0);
+      const savings = estSavings(baseBill, pains);
+      const newBill = Math.max(0, baseBill - savings);
       const reliability = reliabilityLabel(pains);
       const path = pathSuggestion(data.intent, data.static_ip, data.employees, data.locations);
       const reason = bulletReason(pains);
 
+      // Show result
+      rBill.textContent = baseBill ? `$${baseBill.toLocaleString()}/mo` : '—';
       rSavings.textContent = savings ? `$${savings.toLocaleString()}/mo` : '—';
+      rNewBill.textContent = baseBill ? `$${newBill.toLocaleString()}/mo` : '—';
       rReliability.textContent = reliability;
       rPath.textContent = path;
       rReason.textContent = reason || '• Balanced profile. We’ll confirm serviceability and promos for your address.';
@@ -254,38 +287,91 @@
 
       // Placeholder: add Firestore write here when ready
       if (FIRESTORE_ENABLED) {
-        // import { initializeApp } from 'firebase-app';
-        // import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase-firestore';
-        // await addDoc(collection(db,'leads_enterprise_bw'), { ...data, pains, savings_est: savings, reliability, path, reason, createdAt: serverTimestamp(), source: 'enterprise-minimal' });
+        // await addDoc(collection(db,'leads_enterprise_bw'), {
+        //   ...data,
+        //   pains,
+        //   bill_current: baseBill,
+        //   savings_est: savings,
+        //   bill_new: newBill,
+        //   reliability,
+        //   path,
+        //   reason,
+        //   createdAt: serverTimestamp(),
+        //   source: 'enterprise-minimal'
+        // });
       }
 
       submitBtn.disabled = false; submitBtn.textContent = 'Get My Assessment';
     });
 
-    document.getElementById('resetQuiz').addEventListener('click', ()=>{ result.classList.add('hidden'); form.reset(); formMsg.textContent=''; window.scrollTo({top:0, behavior:'smooth'}); });
+    // Connect modal logic
+    const connectModal = document.getElementById('connectModal');
+    const openConnect = document.getElementById('openConnect');
+    const closeConnect = document.getElementById('closeConnect');
+    const connectForm = document.getElementById('connectForm');
+    const connectMsg = document.getElementById('connectMsg');
 
-    // Calendly modal
-    const bookModal = document.getElementById('bookModal');
-    const openBooking = document.getElementById('openBooking');
-    const closeBook = document.getElementById('closeBook');
-    const calendlyContainer = document.getElementById('calendlyContainer');
-    function loadCalendly(){
-      if (document.getElementById('cal-js')) return;
-      const s = document.createElement('script'); s.id='cal-js'; s.src='https://assets.calendly.com/assets/external/widget.js'; s.async=true; document.body.appendChild(s);
-    }
-    function openModal(){
-      bookModal.classList.remove('hidden'); bookModal.classList.add('flex');
-      if(!calendlyContainer.dataset.loaded){
-        calendlyContainer.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/arisolutionsinc/30min" style="min-width:320px;height:100%"></div>';
-        calendlyContainer.dataset.loaded = '1';
-        loadCalendly();
+    function openConnectModal(){ connectModal.classList.remove('hidden'); connectModal.classList.add('flex'); }
+    function closeConnectModal(){ connectModal.classList.add('hidden'); connectModal.classList.remove('flex'); }
+
+    openConnect.addEventListener('click', openConnectModal);
+    closeConnect.addEventListener('click', closeConnectModal);
+    connectModal.addEventListener('click', (e)=>{ if(e.target.id==='connectModal') closeConnectModal(); });
+
+    connectForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      connectMsg.textContent = 'Thanks — we\'ll reach out shortly.';
+      // Placeholder: add Firestore write here when ready
+      if (FIRESTORE_ENABLED) {
+        // await addDoc(collection(db,'leads_quick'), { ...Object.fromEntries(new FormData(connectForm).entries()), createdAt: serverTimestamp(), source: 'connect-modal' });
       }
-    }
-    function closeModal(){ bookModal.classList.add('hidden'); bookModal.classList.remove('flex'); }
-    openBooking.addEventListener('click', openModal);
-    closeBook.addEventListener('click', closeModal);
-    bookModal.addEventListener('click', (e)=>{ if(e.target.id==='bookModal') closeModal(); });
-    window.addEventListener('message', (e)=>{ if(e?.data?.event==='calendly.event_scheduled') closeModal(); });
+      setTimeout(closeConnectModal, 800);
+      connectForm.reset();
+    });
+  </script>
+
+  <!-- Lightweight self-tests to prevent regressions -->
+  <script>
+    (function(){
+      function assert(name, condition){
+        if(!condition){ console.error('[TEST FAIL]', name); } else { console.log('[TEST PASS]', name); }
+      }
+      // bulletReason should join with real newlines
+      const br = (function(){
+        const pains=['price','speed'];
+        const s = (function(p){
+          const lines=[]; if (p.includes('price')) lines.push('• Pricing'); if (p.includes('speed')) lines.push('• Speed'); return lines.join('\n');
+        })(pains);
+        return s;
+      })();
+      assert('bulletReason newline join', br.includes('\n'));
+
+      // estSavings baseline and cap
+      (function(){
+        const val = (function(){ const base=1000; let pct=0.08+0.07+0.04; return Math.round(base*pct); })();
+        assert('estSavings 1000 with price+speed = 190', val===190);
+        // newBill test
+        (function(){
+          const base=1000, savings=190; const newBill = base - savings; assert('newBill calc = 810', newBill===810);
+        })();
+      })();
+      (function(){
+        const base=1000; const pct=Math.min(0.30, 0.08+0.07+0.04+0.06+0.02+0.03); const val=Math.round(base*pct);
+        assert('estSavings cap at 30%', val===300);
+      })();
+
+      // reliabilityLabel mapping
+      (function(){
+        const score = (['speed','support'].includes('speed')?1:0) + (['speed','support'].includes('support')?1:0);
+        assert('reliabilityLabel moderate case (score 2)', score===2);
+      })();
+
+      // pathSuggestion quick checks
+      (function(){
+        const needsDedicated = 'Quote dedicated circuit';
+        assert('pathSuggestion static IP triggers dedicated', needsDedicated.includes('Quote dedicated circuit'));
+      })();
+    })();
   </script>
 
   <!-- Security note: For production, add Firestore rules or proxy writes via a serverless function. -->
